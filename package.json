@@ -1,0 +1,9 @@
+{
+  "name": "faisal-it12-registration",
+  "version": "1.0.0",
+  "private": true,
+  "description": "منصة تسجيل طلاب الصف الثاني عشر - تقنية المعلومات - أ. فيصل العريبي",
+  "engines": {
+    "node": ">=18.x"
+  }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تسجيل الصف الثاني عشر - تقنية المعلومات</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <svg class="hero-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="9" cy="9" r="4" fill="#f4f1e6"/>
+      <circle cx="39" cy="9" r="4" fill="#f4f1e6"/>
+      <circle cx="9" cy="39" r="4" fill="#f4f1e6"/>
+      <circle cx="39" cy="39" r="4" fill="#f4f1e6"/>
+      <circle cx="24" cy="24" r="5" fill="#f4f1e6"/>
+      <path d="M12 10.5L21 22M36 10.5L27 22M12 37.5L21 26M36 37.5L27 26" stroke="#f4f1e6" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <h1>تسجيل طلاب الصف الثاني عشر</h1>
+    <p>مادة تقنية المعلومات — الأستاذ فيصل العريبي</p>
+    <div class="school">مدرسة جابر بن حيان للتعليم الأساسي — وزارة التربية والتعليم، سلطنة عُمان</div>
+  </header>
+
+  <form class="card" id="regForm" novalidate>
+
+    <div class="field">
+      <label for="fullName">الاسم الكامل</label>
+      <input type="text" id="fullName" name="fullName" placeholder="مثال: محمد سالم البلوشي" autocomplete="name" required>
+    </div>
+
+    <div class="field">
+      <label for="phone">رقم الهاتف</label>
+      <div class="phone-row">
+        <span class="prefix">968+</span>
+        <input type="tel" id="phone" name="phone" placeholder="9XXXXXXX" inputmode="numeric" maxlength="8" autocomplete="tel" required>
+      </div>
+      <span class="hint">8 أرقام بدون الصفر في البداية</span>
+    </div>
+
+    <div class="field">
+      <label>الشعبة</label>
+      <div class="section-choice" role="radiogroup" aria-label="الشعبة">
+        <input type="radio" id="sec-adabi" name="section" value="أدبي" required>
+        <label for="sec-adabi">الثاني عشر أدبي</label>
+
+        <input type="radio" id="sec-elmi" name="section" value="علمي">
+        <label for="sec-elmi">الثاني عشر علمي</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="password">كلمة المرور</label>
+      <div class="password-row">
+        <input type="password" id="password" name="password" placeholder="اختر كلمة مرور لا تقل عن 4 أحرف" autocomplete="new-password" minlength="4" required>
+        <button type="button" class="toggle-pass" id="togglePass" aria-label="إظهار كلمة المرور">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" id="eyeIcon">
+            <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+        </button>
+      </div>
+      <span class="hint">هذه الكلمة خاصة بمنصة الصف فقط، لا تستخدم كلمة مرور مهمة لديك في مكان آخر</span>
+    </div>
+
+    <button type="submit" class="submit" id="submitBtn">تسجيل بياناتي</button>
+
+    <div class="msg" id="msg" role="status"></div>
+  </form>
+
+  <p class="footnote">بياناتك تُستخدم فقط من قبل معلم المادة لأغراض تنظيم الصف.</p>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

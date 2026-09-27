@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>لوحة المعلم - أ. فيصل العريبي</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- بوابة الدخول -->
+<div class="wrap gate" id="gateView">
+  <header class="hero">
+    <h1>لوحة أ. فيصل العريبي</h1>
+    <p>عرض تسجيلات طلاب الصف الثاني عشر</p>
+  </header>
+  <form class="card" id="gateForm">
+    <div class="field">
+      <label for="teacherPass">كلمة مرور المعلم</label>
+      <input type="password" id="teacherPass" placeholder="أدخل كلمة المرور" autocomplete="current-password" required>
+    </div>
+    <button type="submit" class="submit">دخول</button>
+    <div class="msg" id="gateMsg" role="status"></div>
+  </form>
+  <p class="footnote">هذا الرابط خاص بالمعلم فقط، لا تشاركه مع الطلاب.</p>
+</div>
+
+<!-- لوحة البيانات -->
+<div class="wrap wide" id="dashView" style="display:none">
+  <header class="hero">
+    <h1>سجل طلاب الصف الثاني عشر</h1>
+    <p>تقنية المعلومات — أ. فيصل العريبي</p>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><span class="num" id="statTotal">0</span><span class="label">إجمالي الطلاب</span></div>
+    <div class="stat"><span class="num" id="statAdabi">0</span><span class="label">أدبي</span></div>
+    <div class="stat"><span class="num" id="statElmi">0</span><span class="label">علمي</span></div>
+  </div>
+
+  <div class="toolbar">
+    <input type="search" id="search" placeholder="ابحث بالاسم أو رقم الهاتف...">
+    <button class="btn-secondary" id="refreshBtn">تحديث</button>
+    <button class="btn-secondary" id="exportJsonBtn">تصدير JSON</button>
+    <button class="btn-secondary" id="exportCsvBtn">تصدير CSV</button>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>الاسم الكامل</th>
+          <th>رقم الهاتف</th>
+          <th>الشعبة</th>
+          <th>تاريخ التسجيل</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+    <div class="empty" id="emptyState" style="display:none">لا توجد بيانات مطابقة بعد.</div>
+  </div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

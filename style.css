@@ -1,0 +1,325 @@
+/* =========================================================
+   منصة تسجيل طلاب الصف الثاني عشر - أ. فيصل العريبي
+   نظام التصميم: تقنية معلومات + هوية عُمانية هادئة
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+
+:root{
+  --ink: #16211f;
+  --ink-soft: #445350;
+  --bg: #eee8d8;
+  --surface: #fffdf7;
+  --line: #d9d0b7;
+  --primary: #0b5d52;
+  --primary-dark: #073f38;
+  --primary-tint: #e3ede9;
+  --accent: #c08a3e;
+  --accent-tint: #f4e9d3;
+  --danger: #b3492f;
+  --danger-tint: #f6e6e1;
+  --radius: 14px;
+  --shadow: 0 1px 0 rgba(22,33,31,.04), 0 12px 24px -16px rgba(22,33,31,.28);
+}
+
+*{ box-sizing: border-box; }
+
+html{ scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+body{
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Tajawal', 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+img, svg{ max-width: 100%; }
+
+.wrap{
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 28px 20px 56px;
+}
+
+.wrap.wide{ max-width: 880px; }
+
+/* ---------- Hero header ---------- */
+.hero{
+  position: relative;
+  overflow: hidden;
+  background: var(--primary);
+  color: #f4f1e6;
+  border-radius: var(--radius);
+  padding: 30px 24px 26px;
+  isolation: isolate;
+}
+
+.hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .16;
+  background-image:
+    linear-gradient(135deg, transparent 46%, rgba(244,241,230,.9) 46%, rgba(244,241,230,.9) 48%, transparent 48%),
+    linear-gradient(45deg, transparent 46%, rgba(244,241,230,.9) 46%, rgba(244,241,230,.9) 48%, transparent 48%);
+  background-size: 34px 34px;
+}
+
+.hero-icon{ width: 46px; height: 46px; margin-bottom: 14px; }
+
+.hero h1{
+  margin: 0 0 6px;
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -.01em;
+}
+
+.hero p{
+  margin: 0;
+  font-size: .95rem;
+  color: #dfeee9;
+}
+
+.hero .school{
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(244,241,230,.25);
+  font-size: .85rem;
+  color: #cfe6df;
+}
+
+/* ---------- Card / form ---------- */
+.card{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-top: 18px;
+}
+
+.field{ margin-bottom: 18px; }
+
+.field label{
+  display: block;
+  font-size: .88rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.field .hint{
+  display: block;
+  font-size: .78rem;
+  color: var(--ink-soft);
+  font-weight: 400;
+  margin-top: 6px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="password"]{
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  transition: border-color .15s ease;
+}
+
+input:focus-visible{
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-tint);
+}
+
+.phone-row{
+  display: flex;
+  gap: 8px;
+  direction: ltr;
+}
+.phone-row .prefix{
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--line);
+  background: var(--primary-tint);
+  color: var(--primary-dark);
+  font-weight: 700;
+  font-size: .95rem;
+}
+.phone-row input{ flex: 1 1 auto; direction: ltr; text-align: left; }
+
+.password-row{ position: relative; }
+.password-row input{ padding-left: 46px; }
+.toggle-pass{
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  bottom: 6px;
+  width: 36px;
+  border: none;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toggle-pass:hover{ background: var(--primary-tint); color: var(--primary-dark); }
+
+.section-choice{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.section-choice input{ position: absolute; opacity: 0; width: 0; height: 0; }
+.section-choice label{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  padding: 14px 10px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: .92rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+}
+.section-choice input:checked + label{
+  border-color: var(--primary);
+  background: var(--primary-tint);
+  color: var(--primary-dark);
+}
+.section-choice input:focus-visible + label{
+  box-shadow: 0 0 0 3px var(--primary-tint);
+}
+
+button.submit{
+  width: 100%;
+  padding: 13px 18px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .15s ease, transform .05s ease;
+}
+button.submit:hover{ background: var(--primary-dark); }
+button.submit:active{ transform: translateY(1px); }
+button.submit:disabled{ background: var(--ink-soft); cursor: progress; opacity: .8; }
+
+.msg{
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: .9rem;
+  display: none;
+}
+.msg.show{ display: block; }
+.msg.ok{ background: var(--primary-tint); color: var(--primary-dark); }
+.msg.error{ background: var(--danger-tint); color: var(--danger); }
+
+.footnote{
+  margin-top: 18px;
+  text-align: center;
+  font-size: .78rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Admin ---------- */
+.gate{
+  max-width: 360px;
+  margin: 60px auto 0;
+}
+
+.stats{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 18px 0;
+}
+.stat{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 10px;
+  text-align: center;
+}
+.stat .num{ font-size: 1.5rem; font-weight: 900; color: var(--primary-dark); display: block; }
+.stat .label{ font-size: .78rem; color: var(--ink-soft); }
+
+.toolbar{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.toolbar input[type="search"]{
+  flex: 1 1 200px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--line);
+  font-family: inherit;
+  font-size: .95rem;
+}
+.btn-secondary{
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1.5px solid var(--primary);
+  background: #fff;
+  color: var(--primary-dark);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: .9rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-secondary:hover{ background: var(--primary-tint); }
+
+.table-wrap{
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+table{ width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 560px; }
+th, td{ padding: 12px 14px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th{ color: var(--ink-soft); font-weight: 700; font-size: .82rem; }
+tbody tr:last-child td{ border-bottom: none; }
+.badge{
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 700;
+}
+.badge.adabi{ background: var(--accent-tint); color: #7a5a1f; }
+.badge.elmi{ background: var(--primary-tint); color: var(--primary-dark); }
+
+.empty{
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--ink-soft);
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; }
+}
